@@ -23,3 +23,5 @@ si la edad de la estrella es menor o igual al tiempo de la estrella en la MS, en
 - para WD la seccion 8.4 de kalirai et al. (2008)
 - para NS la seccion 5 de Rhaitel et al. (2018)
 - para BH la seccion 4 de Rhaitel et al. (2018)
+
+##  Requerimientos
