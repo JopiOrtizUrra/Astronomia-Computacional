@@ -29,6 +29,7 @@ Para tratar esta ambigüedad se define una probabilidad de formar un BH
     
         $$p_{\text{BH}} = 0.574$$
     consistente con las fracciones reportadas por Raithel et al. (2018).
+    Puede modificar tanto $p_{\mathrm{BH}}$ como el parámetro de eyección $f_{\mathrm{ej}}$ para explorar los diferentes escenarios físicos.
 ##  Requerimientos
 Para ejecutar el código se requieren:
 
@@ -39,3 +40,15 @@ Para ejecutar el código se requieren:
 Opcionalmente se puede trabajar en Jupyter Notebook, o en algún editor como VSCode, Spyder o similar.
 
 ## Limitaciones y posibles extensiones
+Este modelo es intencionalmente simplificado, por lo que algunas de sus principales limitaciones son:
+* Se asume SFR constante, sin incluir episodios de formación estelar intensa ni una historia de formación más realista.
+* Se supone una única IMF de Kroupa y una única metalicidad, sin explorar la dependencia con $Z$.
+* No se modela la evolución detallada, no se incluyen fases de gigante roja, supergigante, etc. sólo se distingue entre estrellas en MS y remanentes.
+* No se incluyen sistemas binarios, rotación ni otros efectos que pueden modificar el destino estelar.
+* Las IFMRs se aplican en los rangos de masa donde fueron calibradas, por ello para masas fuera de estos rangos la extrapolación no es fiable.
+* El rango recomendado de masas iniciales es
+    
+        $$0.08~M_\odot \lesssim M_{\mathrm{init}} \lesssim 100~M_\odot$$
+    coherente con la IMF implementada en el código.
+
+A pesar de estas simplificaciones, el modelo entrega una primera aproximación útil al censo teórico de estrellas y remanentes en una galaxia tipo Vía Láctea y sirve como base para extensiones a estudios más complejos.
