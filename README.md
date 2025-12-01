@@ -21,13 +21,12 @@ $$t_{\text{MS}} = \frac{10^{10}}{m^{-2.5}}$$
 si la edad de la estrella es menor o igual al tiempo de la estrella en la MS, entonces la estrella siguen en la MS, por otro lado, si la edad es mayor al tiempo en la MS, entonces la estrella pasa a ser un remanente estelar. Cuando una estrella abandona la MS sigue distintos caminos según su masa inicial, hasta llegar al tipo de remanete en que se convertirá, ya sean white dawarf (WD), neutron star (NS) o black hole (BH). El tiempo que dúra este camino es despreciable en comparación al tiempo del remanente, es por ello que solo se consideran estrellas en la MS o remanentes en esta simulación. Se utiliza la initial fraction to mass relation (IFMR) para ajustar el camino que traza la estrella desde la MS hasta ser remananente, donde cada tipo de remanente tiene su propia IFMR. Para mas detalles respecto a la IFMR de cada remanenete, revisar:
 
 - para WD la seccion 8.4 de kalirai et al. (2008)
-- para NS la seccion 5 de Rhaitel et al. (2018)
+- para NS la seccion 5, ecuaciones 11, 12, 13, 14 de Rhaitel et al. (2018)
 - para BH la seccion 4 de Rhaitel et al. (2018)
 
 ##  Requerimientos
 Para ejecutar el código se requieren:
 
-* \textbf{Python 3} (versión 3.x).
-* \item \textbf{NumPy} para el manejo de arreglos y generación de variables aleatorias.
-* \item \textbf{Matplotlib} para la generación de figuras y gráficos.
-\end{itemize}
+* Python 3 (versión 3.x)
+* NumPy para el manejo de arreglos y generación de variables aleatorias.
+* Matplotlib.
