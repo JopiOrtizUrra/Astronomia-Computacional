@@ -21,12 +21,12 @@ If the age of a star is less than or equal to its MS lifetime, it remains on the
 
 To see which can of remnant we have, we used the **Initial-to-Final Mass Relation (IFMR)**, that maps MS masses (initial mass) to remnant masses (final mass). Depending on the mass range (at the articles are called branches), functions for fitting the life of the stars changes. Each remnant type uses its own IFMR. See:
 
-- **WD:** Section 8.4 of [Kalirai et al. (2008)]((https://iopscience.iop.org/article/10.1086/527028)
+- **WD:** Section 8.4 of [Kalirai et al. (2008)](https://iopscience.iop.org/article/10.1086/527028)
 - **NS:** Section 5 (equations 11–14) of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
 - **BH:** Section 4 of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
 
 We noticed that NS and BH coincide at the mass range $15 M_\odot \leq M_{\text{init}} < 18.5 M_\odot$. So ta this range the final stellar fate may be either an NS or a BH.  
-To handle this ambiguity, a probability of forming a BH is defined by Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract), as $p_{\text{BH}} = 0.574$. Is important to mention that BH IFMR have a ejection parameter $(f_{\text{ej}})$ that represent the fraction of envelope to be ejected by the star. We utilized  $f_{\text{ej}}=0.9$. Both parameters,$p_{\text{BH}}$ and $f_{\text{ej}}$, are available for adjustments.
+To handle this ambiguity, a probability of forming a BH is defined by [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract), as $p_{\text{BH}} = 0.574$. Is important to mention that BH IFMR have a ejection parameter $(f_{\text{ej}})$ that represent the fraction of envelope to be ejected by the star. We utilized  $f_{\text{ej}}=0.9$. Both parameters,$p_{\text{BH}}$ and $f_{\text{ej}}$, are available for adjustments.
 
 Till now, all the astronomical process requiered the initial mass of the stars. We used Monte Carlo method to obtain the initial mass that follow Krouppa IMF from a uniform random probability (u), that represent the value of dN/dm. If the probability of a star is under the Krouppa IMF, the stars will be part of the Milky Way. In case is equal or bigger, we ignore thoses stars.
 
