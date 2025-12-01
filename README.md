@@ -23,10 +23,20 @@ si la edad de la estrella es menor o igual al tiempo de la estrella en la MS, en
 - para WD la seccion 8.4 de kalirai et al. (2008)
 - para NS la seccion 5, ecuaciones 11, 12, 13, 14 de Rhaitel et al. (2018)
 - para BH la seccion 4 de Rhaitel et al. (2018)
-
+## Zona mixta NS/BH
+En el rango intermedio $$15 \le M_{\mathrm{init}} < 18.5~M_\odot$$ el destino puede ser NS o BH.  
+Para tratar esta ambigüedad se define una probabilidad de formar un BH
+    \[
+        p_{\mathrm{BH}} = 0.574,
+    \]
+    consistente con las fracciones reportadas por Raithel et al. (2018).
 ##  Requerimientos
 Para ejecutar el código se requieren:
 
 * Python 3 (versión 3.x)
 * NumPy para el manejo de arreglos y generación de variables aleatorias.
 * Matplotlib
+
+Opcionalmente se puede trabajar en Jupyter Notebook, o en algún editor como VSCode, Spyder o similar.
+
+## Limitaciones y posibles extensiones
