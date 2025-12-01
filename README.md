@@ -25,8 +25,7 @@ To see which can of remnant we have, we used the **Initial-to-Final Mass Relatio
 - **NS:** Section 5 (equations 11–14) of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
 - **BH:** Section 4 of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
 
-We noticed that NS and BH coincide at the mass range $15 M_\odot \leq M_{\text{init}} < 18.5 M_\odot$. So ta this range the final stellar fate may be either an NS or a BH.  
-To handle this ambiguity, a probability of forming a BH is defined by [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract), as $p_{\text{BH}} = 0.574$. Is important to mention that BH IFMR have a ejection parameter $(f_{\text{ej}})$ that represent the fraction of envelope to be ejected by the star. We utilized  $f_{\text{ej}}=0.9$. Both parameters,$p_{\text{BH}}$ and $f_{\text{ej}}$, are available for adjustments.
+We noticed that NS and BH coincide at the mass range $15 M_\odot \leq M_{\text{init}} < 18.5 M_\odot$. So at this range the final stellar fate may be either an NS or a BH. To handle this ambiguity, a probability of forming a BH is defined by Raithel et al. (2018), as $p_{\text{BH}} = 0.574$. Is important to mention that BH IFMR have a ejection parameter $(f_{\text{ej}})$ that represent the fraction of envelope to be ejected by the star. We utilized  $f_{\text{ej}}=0.9$. Both parameters,$p_{\text{BH}}$ and $f_{\text{ej}}$, are available for adjustments.
 
 Till now, all the astronomical process requiered the initial mass of the stars. We used Monte Carlo method to obtain the initial mass that follow Krouppa IMF from a uniform random probability (u), that represent the value of dN/dm. If the probability of a star is under the Krouppa IMF, the stars will be part of the Milky Way. In case is equal or bigger, we ignore thoses stars.
 
@@ -49,15 +48,14 @@ Optional tools:
 This is a simplified stellar population model, with the following limitations:
 
 - Constant SFR (no bursts or realistic star formation history).
-- Single Kroupa IMF and fixed metallicity (no \(Z\)-dependence).
+- Single Kroupa IMF and no implications with matallicity.
 - No detailed stellar evolution phases (e.g., red giants, supergiants).
 - No binary systems, rotation, or additional physical effects.
 - IFMRs are used only within their calibrated mass ranges; extrapolations may be unreliable.
-- Recommended initial mass range:
+- Recommended initial mass range: $0.08 M_\odot \leqM_{\text{init}}\leq 100 M_\odot$.
 
-\[
-0.08\,M_\odot \lesssim M_{\text{init}} \lesssim 100\,M_\odot
-\]
+## Functions
+The functions we used are described detallied into the code. If ypu one to know more information about a function used the command function_name.help().                                                                                  
 
 Despite its simplicity, this model provides a useful first approximation to the theoretical census of stars and remnants in a Milky Way–like galaxy and serves as a foundation for more advanced studies.
 
