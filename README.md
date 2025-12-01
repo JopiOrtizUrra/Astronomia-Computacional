@@ -25,3 +25,10 @@ si la edad de la estrella es menor o igual al tiempo de la estrella en la MS, en
 - para BH la seccion 4 de Rhaitel et al. (2018)
 
 ##  Requerimientos
+Para ejecutar el código se requieren:
+
+\begin{itemize}
+    \item \textbf{Python 3} (versión 3.x).
+    \item \textbf{NumPy} para el manejo de arreglos y generación de variables aleatorias.
+    \item \textbf{Matplotlib} para la generación de figuras y gráficos.
+\end{itemize}
