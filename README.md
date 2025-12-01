@@ -7,11 +7,11 @@ To meet the objective of the simulation, it is important to understand some astr
 
 $$\xi(m) \propto m^{-\alpha}$$
 
-where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001)](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract). We used the functions for masses between 0.08 and 100$M_\odot$. At the boundaries of these mass intervals, we noticed that the IMF appeared to be discontinuous. As a solution, we introduced proportionality constants ($k_i$) that, when applied to each segment of the piecewise function, produce a smooth and continuous Kroupa IMF. To obatain $k_i$ values, we used the next relation:
+where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001)](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract). We used the functions for masses between 0.08 and 100 $M_\odot$. At the boundaries of these mass intervals, we noticed that the IMF appeared to be discontinuous. As a solution, we introduced proportionality constants ($k_i$) that, when applied to each segment of the piecewise function, produce a smooth and continuous Kroupa IMF. To obatain $k_i$ values, we used the next relation:
 
 $$k_im^{-\alpha_i}=k_{i+1}m^{-\alpha_{i+1}}$$
 
-Each star muss have a time of birt ($t_{\text{birth}}$). At this simulation we aasumed a constant **Star Formation Rate (SFR)**, that specifies how many stars form over the lifetime of the galaxy. The Milky Way’s lifetime is taken as (wm_age = $10^{10}$) years, and with this two parameters is possible to get the current age of a star.
+Each star muss have a time of birt ($t_{\text{birth}}$). At this simulation we aasumed a constant **Star Formation Rate (SFR)**, that specifies how many stars form over the lifetime of the galaxy. The Milky Way’s lifetime is taken as $10^{10}$ years, and with this two parameters is possible to get the current age of a star.
 
 Some stars that are still burning hydrogen in their cores lie on the **main sequence (MS)**. Once hydrogen is exhausted, they become **stellar remnants**. The MS lifetime is approximated as:
 
