@@ -7,51 +7,31 @@ To meet the objective of the simulation, it is important to understand some astr
 
 $$\xi(m) \propto m^{-\alpha}$$
 
-where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001)](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract). We used the functions for masses between 0.08 and 100$M_\odot$. At the boundaries of these mass intervals, we noticed that the IMF appeared to be discontinuous. As a solution, we introduced proportionality constants ($k_i$) that, when applied to each segment of the piecewise function, produce a smooth and continuous Kroupa IMF. To obatain $k_i$ values, we used the next relation: $k_im^{-\alpha_i}=k_{i+1}m^{-\alpha_{i+1}$.
+where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001)](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract). We used the functions for masses between 0.08 and 100$M_\odot$. At the boundaries of these mass intervals, we noticed that the IMF appeared to be discontinuous. As a solution, we introduced proportionality constants ($k_i$) that, when applied to each segment of the piecewise function, produce a smooth and continuous Kroupa IMF. To obatain $k_i$ values, we used the next relation:
 
-Each star **Star Formation Rate (SFR)** specifies how many stars form over the lifetime of the galaxy. A constant SFR is assumed. The Milky Way’s lifetime is taken as \(t_{\text{MW}} = 10^{10}\) years, and the current age of a star is:
+$$k_im^{-\alpha_i}=k_{i+1}m^{-\alpha_{i+1}}$$
 
-\[
-t_{\text{today}} = t_{\text{MW}} - t_{\text{birth}}
-\]
+Each star muss have a time of birt ($t_{\text{birth}}$). At this simulation we aasumed a constant **Star Formation Rate (SFR)**, that specifies how many stars form over the lifetime of the galaxy. The Milky Way’s lifetime is taken as (wm_age = $10^{10}$) years, and with this two parameters is possible to get the current age of a star.
 
-Stars that are still burning hydrogen in their cores lie on the **main sequence (MS)**. Once hydrogen is exhausted, they become **stellar remnants**. The MS lifetime is approximated as:
+Some stars that are still burning hydrogen in their cores lie on the **main sequence (MS)**. Once hydrogen is exhausted, they become **stellar remnants**. The MS lifetime is approximated as:
 
-\[
-t_{\text{MS}} = \frac{10^{10}}{m^{-2.5}}
-\]
+$$t_{\text{MS}} = \frac{10^{10}}{m^{-2.5}}$$
 
-If the age of a star is less than or equal to its MS lifetime, it remains on the MS; otherwise, it becomes a remnant. Depending on their initial mass, stars evolve into **white dwarfs (WDs)**, **neutron stars (NSs)**, or **black holes (BHs)**.  
-Post-MS evolution timescales are negligible compared to remnant lifetimes, so only MS stars and remnants are included in this model.
+If the age of a star is less than or equal to its MS lifetime, it remains on the MS; otherwise, it becomes a remnant. Depending on their initial mass, stars evolve into **white dwarfs (WDs)**, **neutron stars (NSs)**, or **black holes (BHs)**. Post-MS evolution timescales are negligible compared to remnant lifetimes, so only MS stars and remnants are included in this model.
 
-The **Initial-to-Final Mass Relation (IFMR)** maps MS masses to remnant masses. Each remnant type uses its own IFMR. See:
+To see which can of remnant we have, we used the **Initial-to-Final Mass Relation (IFMR)**, that maps MS masses (initial mass) to remnant masses (final mass). Depending on the mass range (at the articles are called branches), functions for fitting the life of the stars changes. Each remnant type uses its own IFMR. See:
 
-- **WD:** Section 8.4 of Kalirai et al. (2008)  
-- **NS:** Section 5 (equations 11–14) of Raithel et al. (2018)  
-- **BH:** Section 4 of Raithel et al. (2018)
+- **WD:** Section 8.4 of [Kalirai et al. (2008)]((https://iopscience.iop.org/article/10.1086/527028)
+- **NS:** Section 5 (equations 11–14) of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
+- **BH:** Section 4 of [Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract)
 
----
+We noticed that NS and BH coincide at the mass range $15 M_\odot \leq M_{\text{init}} < 18.5 M_\odot$. So ta this range the final stellar fate may be either an NS or a BH.  
+To handle this ambiguity, a probability of forming a BH is defined by Raithel et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018ApJ...856...35R/abstract), as $p_{\text{BH}} = 0.574$. Is important to mention that BH IFMR have a ejection parameter $(f_{\text{ej}})$ that represent the fraction of envelope to be ejected by the star. We utilized  $f_{\text{ej}}=0.9$. Both parameters,$p_{\text{BH}}$ and $f_{\text{ej}}$, are available for adjustments.
 
-## Mixed NS/BH Mass Range
-In the intermediate mass range:
+Till now, all the astronomical process requiered the initial mass of the stars. We used Monte Carlo method to obtain the initial mass that follow Krouppa IMF from a uniform random probability (u), that represent the value of dN/dm. If the probability of a star is under the Krouppa IMF, the stars will be part of the Milky Way. In case is equal or bigger, we ignore thoses stars.
 
-\[
-15 \le M_{\text{init}} < 18.5 \, M_\odot
-\]
-
-the final stellar fate may be either an NS or a BH.  
-To handle this ambiguity, a probability of forming a BH is defined:
-
-\[
-p_{\text{BH}} = 0.574
-\]
-
-consistent with Raithel et al. (2018).  
-You may adjust both \(p_{\text{BH}}\) and the ejection parameter \(f_{\text{ej}}\) to explore different physical scenarios.
-
----
-
-## Requirements
+## How to used the code
+### Requirements
 To run the code, you need:
 
 - Python 3  
