@@ -1,4 +1,5 @@
-# Astronomia-Computacional
+# Simulación Monte Carlo de la población estelar de la Vía Láctea
+## Descripción
 Este código es simula las estrellas que componen la vía lactea, entregandonos información sobre la edad, estrellas en la main sequence y remanentes estelares, a partir de una masa dada para cada estrella utilizando el método de monte carlo. Es relevante estudiar la composicion de la vía lactea, para conocer la historia de evolución y formación de nuestra galaxia.
 
 Initial mass function (IMF) es una función que describe la distribución inicial de masas para una población de estrellas. Se utilizo el modelo de IMF de Krouppa, el cual define que el número de estrellas en un cierto rango de masa $(\xi(m))$ sigue la ley de potencia, dada por:
