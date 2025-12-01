@@ -42,7 +42,7 @@ Opcionalmente se puede trabajar en Jupyter Notebook, o en algún editor como VSC
 ## Limitaciones y posibles extensiones
 Este modelo es intencionalmente simplificado, por lo que algunas de sus principales limitaciones son:
 * Se asume SFR constante, sin incluir episodios de formación estelar intensa ni una historia de formación más realista.
-* Se supone una única IMF de Kroupa y una única metalicidad, sin explorar la dependencia con $Z$.
+* Se supone una única IMF de Kroupa y una única metalicidad, sin explorar la dependencia con la metalicidad ($Z$).
 * No se modela la evolución detallada, no se incluyen fases de gigante roja, supergigante, etc. sólo se distingue entre estrellas en MS y remanentes.
 * No se incluyen sistemas binarios, rotación ni otros efectos que pueden modificar el destino estelar.
 * Las IFMRs se aplican en los rangos de masa donde fueron calibradas, por ello para masas fuera de estos rangos la extrapolación no es fiable.
