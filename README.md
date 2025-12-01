@@ -1,54 +1,85 @@
-# Simulación Monte Carlo de la población estelar de la Vía Láctea
-## Descripción
-Este código es simula las estrellas que componen la vía lactea, entregandonos información sobre la edad, estrellas en la main sequence y remanentes estelares, a partir de una masa dada para cada estrella utilizando el método de monte carlo. Es relevante estudiar la composicion de la vía lactea, para conocer la historia de evolución y formación de nuestra galaxia.
+# Monte Carlo Simulation of the Milky Way Stellar Population
 
-Initial mass function (IMF) es una función que describe la distribución inicial de masas para una población de estrellas. Se utilizo el modelo de IMF de Krouppa, el cual define que el número de estrellas en un cierto rango de masa $(\xi(m))$ sigue la ley de potencia, dada por:
+## Description
+This project simulates the stars that make up the Milky Way, providing information about stellar ages, main-sequence stars, and stellar remnants. Each star is assigned an initial mass drawn via Monte Carlo sampling. Understanding the stellar population helps us study the formation and evolutionary history of our galaxy.
+
+To meet the objective of the simulation, it is important to understand some astronomical terms used throughout the process. The stars that make up the galaxy follow an **Initial Mass Function (IMF)**, that describes the mass distribution of stars at birth. This project uses the **Kroupa IMF**, which states that the number of stars in a given mass range ($\xi(m))$) follows a power law:
 
 $$\xi(m) \propto m^{-\alpha}$$
 
-con $m$ la masa y $\alpha$ un exponente que varia según el rango de masa. Para mas detalles de la función leer la seccion 6.2 de Pavel Krouppa.
+where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001) – The Initial Mass Function of Stars](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract).
 
-Star formation rate (SFR) señala cuantas estrellas se forman a lo largo de la vida de la galaxia. Se considera una formación estelar constante, para lo cual se define que tiempo de vida de la Vía Láctea ( $t_{\text{MW}}$) es de 10 millones de años y que la edad actual de la estrella ($t_{\text{today}}$) viene dada por:
 
-$$t_{\text{today}} = t_{\text{MW}} - t_{\text{birth}}$$
+The **Star Formation Rate (SFR)** specifies how many stars form over the lifetime of the galaxy. A constant SFR is assumed. The Milky Way’s lifetime is taken as \(t_{\text{MW}} = 10^{10}\) years, and the current age of a star is:
 
-con $t_{\text{birth}}$ el año en que la estrella nació.
+\[
+t_{\text{today}} = t_{\text{MW}} - t_{\text{birth}}
+\]
 
-Las estrellas que aún estan en su proceso de fusión de hidrógeno a helio se encuentran en la secuencia principal, mientras que aquellas que ya han agotado el hidrógeno en el núcleo son llamadas remanentes estelares. El tiempo que una estrella permanece en la MS ($t_{\text{MS}}$) esta determinado por su masa inicial como:
+Stars that are still burning hydrogen in their cores lie on the **main sequence (MS)**. Once hydrogen is exhausted, they become **stellar remnants**. The MS lifetime is approximated as:
 
-$$t_{\text{MS}} = \frac{10^{10}}{m^{-2.5}}$$
+\[
+t_{\text{MS}} = \frac{10^{10}}{m^{-2.5}}
+\]
 
-si la edad de la estrella es menor o igual al tiempo de la estrella en la MS, entonces la estrella siguen en la MS, por otro lado, si la edad es mayor al tiempo en la MS, entonces la estrella pasa a ser un remanente estelar. Cuando una estrella abandona la MS sigue distintos caminos según su masa inicial, hasta llegar al tipo de remanete en que se convertirá, ya sean white dawarf (WD), neutron star (NS) o black hole (BH). El tiempo que dúra este camino es despreciable en comparación al tiempo del remanente, es por ello que solo se consideran estrellas en la MS o remanentes en esta simulación. Se utiliza la initial fraction to mass relation (IFMR) para ajustar el camino que traza la estrella desde la MS hasta ser remananente, donde cada tipo de remanente tiene su propia IFMR. Para mas detalles respecto a la IFMR de cada remanenete, revisar:
+If the age of a star is less than or equal to its MS lifetime, it remains on the MS; otherwise, it becomes a remnant. Depending on their initial mass, stars evolve into **white dwarfs (WDs)**, **neutron stars (NSs)**, or **black holes (BHs)**.  
+Post-MS evolution timescales are negligible compared to remnant lifetimes, so only MS stars and remnants are included in this model.
 
-- para WD la seccion 8.4 de kalirai et al. (2008)
-- para NS la seccion 5, ecuaciones 11, 12, 13, 14 de Rhaitel et al. (2018)
-- para BH la seccion 4 de Rhaitel et al. (2018)
-## Zona mixta NS/BH
-En el rango intermedio $$15 \le M_{\mathrm{init}} < 18.5~M_\odot$$ el destino puede ser NS o BH.  
-Para tratar esta ambigüedad se define una probabilidad de formar un BH
-    
-        $$p_{\text{BH}} = 0.574$$
-    consistente con las fracciones reportadas por Raithel et al. (2018).
-    Puede modificar tanto $p_{\mathrm{BH}}$ como el parámetro de eyección $f_{\mathrm{ej}}$ para explorar los diferentes escenarios físicos.
-##  Requerimientos
-Para ejecutar el código se requieren:
+The **Initial-to-Final Mass Relation (IFMR)** maps MS masses to remnant masses. Each remnant type uses its own IFMR. See:
 
-* Python 3 (versión 3.x)
-* NumPy para el manejo de arreglos y generación de variables aleatorias.
-* Matplotlib
+- **WD:** Section 8.4 of Kalirai et al. (2008)  
+- **NS:** Section 5 (equations 11–14) of Raithel et al. (2018)  
+- **BH:** Section 4 of Raithel et al. (2018)
 
-Opcionalmente se puede trabajar en Jupyter Notebook, o en algún editor como VSCode, Spyder o similar.
+---
 
-## Limitaciones y posibles extensiones
-Este modelo es intencionalmente simplificado, por lo que algunas de sus principales limitaciones son:
-* Se asume SFR constante, sin incluir episodios de formación estelar intensa ni una historia de formación más realista.
-* Se supone una única IMF de Kroupa y una única metalicidad, sin explorar la dependencia con la metalicidad ($Z$).
-* No se modela la evolución detallada, no se incluyen fases de gigante roja, supergigante, etc. sólo se distingue entre estrellas en MS y remanentes.
-* No se incluyen sistemas binarios, rotación ni otros efectos que pueden modificar el destino estelar.
-* Las IFMRs se aplican en los rangos de masa donde fueron calibradas, por ello para masas fuera de estos rangos la extrapolación no es fiable.
-* El rango recomendado de masas iniciales es
-    
-        $$0.08~M_\odot \lesssim M_{\mathrm{init}} \lesssim 100~M_\odot$$
-    coherente con la IMF implementada en el código.
+## Mixed NS/BH Mass Range
+In the intermediate mass range:
 
-A pesar de estas simplificaciones, el modelo entrega una primera aproximación útil al censo teórico de estrellas y remanentes en una galaxia tipo Vía Láctea y sirve como base para extensiones a estudios más complejos.
+\[
+15 \le M_{\text{init}} < 18.5 \, M_\odot
+\]
+
+the final stellar fate may be either an NS or a BH.  
+To handle this ambiguity, a probability of forming a BH is defined:
+
+\[
+p_{\text{BH}} = 0.574
+\]
+
+consistent with Raithel et al. (2018).  
+You may adjust both \(p_{\text{BH}}\) and the ejection parameter \(f_{\text{ej}}\) to explore different physical scenarios.
+
+---
+
+## Requirements
+To run the code, you need:
+
+- Python 3  
+- NumPy  
+- Matplotlib  
+
+Optional tools:
+
+- Jupyter Notebook  
+- VSCode, Spyder, or any Python-friendly IDE
+
+---
+
+## Limitations and Possible Extensions
+This is a simplified stellar population model, with the following limitations:
+
+- Constant SFR (no bursts or realistic star formation history).
+- Single Kroupa IMF and fixed metallicity (no \(Z\)-dependence).
+- No detailed stellar evolution phases (e.g., red giants, supergiants).
+- No binary systems, rotation, or additional physical effects.
+- IFMRs are used only within their calibrated mass ranges; extrapolations may be unreliable.
+- Recommended initial mass range:
+
+\[
+0.08\,M_\odot \lesssim M_{\text{init}} \lesssim 100\,M_\odot
+\]
+
+Despite its simplicity, this model provides a useful first approximation to the theoretical census of stars and remnants in a Milky Way–like galaxy and serves as a foundation for more advanced studies.
+
+
