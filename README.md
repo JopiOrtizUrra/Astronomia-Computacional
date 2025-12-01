@@ -30,6 +30,7 @@ We noticed that NS and BH coincide at the mass range $15 M_\odot \leq M_{\text{i
 Till now, all the astronomical process requiered the initial mass of the stars. We used Monte Carlo method to obtain the initial mass that follow Krouppa IMF from a uniform random probability (u), that represent the value of dN/dm. If the probability of a star is under the Krouppa IMF, the stars will be part of the Milky Way. In case is equal or bigger, we ignore thoses stars.
 
 ## How to used the code
+Before you start using the code, we recommend to read the flowchart in this repository. This will help you to understand the structure of the code, the sequence of the functiones and the defined paramters and thoses you can change to explore new reults.
 ### Requirements
 To run the code, you need:
 
@@ -42,9 +43,7 @@ Optional tools:
 - Jupyter Notebook  
 - VSCode, Spyder, or any Python-friendly IDE
 
----
-
-## Limitations and Possible Extensions
+### Limitations and Possible Extensions
 This is a simplified stellar population model, with the following limitations:
 
 - Constant SFR (no bursts or realistic star formation history).
@@ -55,7 +54,7 @@ This is a simplified stellar population model, with the following limitations:
 - Recommended initial mass range: $0.08 M_\odot \leqM_{\text{init}}\leq 100 M_\odot$.
 
 ## Functions
-The functions we used are described detallied into the code. If ypu one to know more information about a function used the command function_name.help().                                                                                  
+The functions we used are described detallied into the code. If you one to know more information about a function used the command function_name.help().                                                                               
 
 Despite its simplicity, this model provides a useful first approximation to the theoretical census of stars and remnants in a Milky Way–like galaxy and serves as a foundation for more advanced studies.
 
