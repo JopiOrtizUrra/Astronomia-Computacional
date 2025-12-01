@@ -3,14 +3,13 @@
 ## Description
 This project simulates the stars that make up the Milky Way, providing information about stellar ages, main-sequence stars, and stellar remnants. Each star is assigned an initial mass drawn via Monte Carlo sampling. Understanding the stellar population helps us study the formation and evolutionary history of our galaxy.
 
-To meet the objective of the simulation, it is important to understand some astronomical terms used throughout the process. The stars that make up the galaxy follow an **Initial Mass Function (IMF)**, that describes the mass distribution of stars at birth. This project uses the **Kroupa IMF**, which states that the number of stars in a given mass range ($\xi(m))$) follows a power law:
+To meet the objective of the simulation, it is important to understand some astronomical terms used throughout the process. The stars that make up the galaxy follow an **Initial Mass Function (IMF)**, that describes the mass distribution of stars at birth. This project uses the **Kroupa IMF**, which states that the number of stars in a given mass range ($\xi(m)$= dN\dm) follows a power law:
 
 $$\xi(m) \propto m^{-\alpha}$$
 
-where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001) – The Initial Mass Function of Stars](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract).
+where $(m)$ is the mass and $(\alpha)$ is a mass-dependent slope. For details related to $\alpha$ value at each mass range, see Section 6.2 of [Kroupa (2001)](https://ui.adsabs.harvard.edu/abs/2001MNRAS.322..231K/abstract). We used the functions for masses between 0.08 and 100$M_\odot$. At the boundaries of these mass intervals, we noticed that the IMF appeared to be discontinuous. As a solution, we introduced proportionality constants ($k_i$) that, when applied to each segment of the piecewise function, produce a smooth and continuous Kroupa IMF. To obatain $k_i$ values, we used the next relation: $k_im^{-\alpha_i}=k_{i+1}m^{-\alpha_{i+1}$.
 
-
-The **Star Formation Rate (SFR)** specifies how many stars form over the lifetime of the galaxy. A constant SFR is assumed. The Milky Way’s lifetime is taken as \(t_{\text{MW}} = 10^{10}\) years, and the current age of a star is:
+Each star **Star Formation Rate (SFR)** specifies how many stars form over the lifetime of the galaxy. A constant SFR is assumed. The Milky Way’s lifetime is taken as \(t_{\text{MW}} = 10^{10}\) years, and the current age of a star is:
 
 \[
 t_{\text{today}} = t_{\text{MW}} - t_{\text{birth}}
