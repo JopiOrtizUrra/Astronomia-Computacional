@@ -29,4 +29,4 @@ Para ejecutar el código se requieren:
 
 * Python 3 (versión 3.x)
 * NumPy para el manejo de arreglos y generación de variables aleatorias.
-* Matplotlib.
+* Matplotlib
