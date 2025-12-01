@@ -53,7 +53,7 @@ This is a simplified stellar population model, with the following limitations:
 - IFMRs are used only within their calibrated mass ranges; extrapolations may be unreliable.
 - Recommended initial mass range: $0.08 M_\odot \leqM_{\text{init}}\leq 100 M_\odot$.
 
-## Functions
+### Functions
 The functions we used are described detallied into the code. If you one to know more information about a function used the command function_name.help().                                                                               
 
 Despite its simplicity, this model provides a useful first approximation to the theoretical census of stars and remnants in a Milky Way–like galaxy and serves as a foundation for more advanced studies.
